@@ -24,4 +24,8 @@
   position: absolute;
   right: -20px;
   top: 0;
+
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
 }

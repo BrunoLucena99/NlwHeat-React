@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: AuthProvider) => {
   const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=c00161c27d8f0afb4871`;
 
   const signIn = useCallback(async (code: string) => {
-    const response = await api.post<AuthResponse>('authenticate', {code});
+    const response = await api.post<AuthResponse>('authenticate', {code, browser: true});
     const { token, user: userAux } = response.data;
     localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
     setToken(token);
